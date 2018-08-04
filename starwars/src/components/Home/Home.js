@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 const Home = (props) => (
     <div clasName='Home'>
-        <p>Welcome to the dark side</p>
+        <h1>Welcome to the dark side</h1>
     </div>
 );
 export default Home;

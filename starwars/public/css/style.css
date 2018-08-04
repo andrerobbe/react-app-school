@@ -1,6 +1,6 @@
 @font-face{
   font-family: 'starwars_1';
-  src: url('../fonts/starwars_1.ttf');
+  src: url('../fonts/starwars_4.ttf');
 }
 
 body, html {
@@ -21,19 +21,21 @@ body{
   font-family: 'starwars_1';
 }
 
-.logo {
+header {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 10px;
+}
+
+header img {
   animation: logo-intro .7s ease-in-out;
   height: 150px;
 }
+
 @keyframes logo-intro {
   from { transform: scale(0); }
   to { transform: scale(100%); }
 }
-
-header {
-  padding: 30px;
-}
-
 
 
 
@@ -47,7 +49,6 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin-top: 40px;
     width: 250px;
     position: fixed;
     height: 100%;
@@ -62,6 +63,38 @@ nav li a {
     text-decoration: none;
 }
 
-nav li a:hover:not(.active) {
+li a:hover:not(.active) {
     color: yellow;
+}
+
+
+
+/* 
+####################
+##### STARSHIPS ####
+###################
+*/
+
+.App div:nth-child(2){
+  padding-top: 1px; /*fixes weird glitch with nav height */
+  text-align: left;
+  margin-left: 400px;
+}
+
+.App div:nth-child(2) h1{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.container{
+  margin-top: 90px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li a{
+  text-decoration: none;
+  color: white;
 }
