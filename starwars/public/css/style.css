@@ -72,7 +72,8 @@ li a:hover:not(.active) {
 /* 
 ####################
 ##### STARSHIPS ####
-###################
+##### OVERVIEW #####
+####################
 */
 
 .App div:nth-child(2){
@@ -97,4 +98,68 @@ ul {
 li a{
   text-decoration: none;
   color: white;
+}
+
+
+/* 
+####################
+##### STARSHIPS ####
+###### DETAILS #####
+####################
+*/
+
+.starshipsCategories {
+  float: left;
+  margin-right: 100px;
+}
+
+form div input, form div select {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25em;
+  background: transparent;
+  color: white;
+  font-family: 'starwars_1';
+  padding: 0.7em 0;
+  border: none;
+}
+form div input:focus, form div select:focus {
+  border-style: none;
+  border: none;
+  outline: none;
+}
+
+form div input:hover, form div select:hover, form div:hover {
+  color: yellow;
+  transition: 0.2s;
+}
+.options{
+  background-color: #000;
+}
+
+
+form div{
+  margin: 2em 0;
+}
+
+.App form div:nth-child(2){
+  padding-top: 0px;
+  margin-left: 0px;
+}
+
+form button{
+  padding: 1em 5em;
+  font-family: 'starwars_1';
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: none;
+  color: white;
+  margin-top: 20px;
+}
+
+form button:hover{
+  border-color: yellow;
+  transition: 0.2s;
 }

@@ -103,14 +103,44 @@ export default class StarshipDetail extends React.Component {
 			<div className="starship">
 				<h1>{this.state.starship.name}</h1>
 				<section className='container'>
-					<ul className="starships">
-						<li>Model: {this.state.starship.model}</li>
-						<li>Class: {this.state.starship.starship_class[0]}</li>
-						<li>Passengers: {this.state.starship.passengers}</li>
-						<li>Consumables: {this.state.starship.consumables}</li>
-						<li>Cost: {this.state.starship.cost_in_credits}</li>
-						<li>Model: {this.state.starship.model}</li>
-					</ul>
+					<form action="" onSubmit={(e) => this.onSubmit(e)}>
+						<div>
+							<label htmlFor="starship-name">Name</label>
+							<input required type="text" name="starship-name" id="starship-name" value={this.state.starship.name} onChange={(e) => this.updateName(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-name">Model</label>
+							<input required type="text" name="starship-model" id="starship-model" value={this.state.starship.model} onChange={(e) => this.updateModel(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-passengers">Passengers</label>
+							<input required type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-consumables">Consumables</label>
+							<input required type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-cost">Cost</label>
+							<input required type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
+						</div>
+
+						<div>
+							<label htmlFor="class">Class</label>
+							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+								<option className="options" value='Star dreadnought'>Star dreadnought</option>
+								<option className="options" value='Landing craft'>Landing craft</option>
+								<option className="options" value='Deep Space Mobile Battlestation'>Deep Space Mobile Battlestation</option>
+								<option className="options" value='Light freighter'>Light freighter</option>
+								<option className="options" value='Assault starfighter'>Assault starfighter</option>
+								<option className="options" value='Starfighter'>Starfighter</option>
+								<option className="options" value='Patrol craft'>Patrol craft</option>
+								<option className="options" value='Armed government transport'>Armed government transport</option>
+								<option className="options" value='Escort ship'>Escort ship</option>
+							</select>
+						</div>
+						<button type="submit">Save</button>
+					</form>
 				</section>
 			</div>
 		);
