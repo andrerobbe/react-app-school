@@ -1,0 +1,67 @@
+@font-face{
+  font-family: 'starwars_1';
+  src: url('../../fonts/starwars_1.ttf');
+}
+
+body, html {
+  height: 100%;
+}
+body{
+  background-image: url('./../../img/bg.jpeg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  margin: 0;
+  font-family: 'starwars_1';
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-intro .7s ease-in-out;
+  height: 150px;
+}
+@keyframes App-logo-intro {
+  from { transform: scale(0); }
+  to { transform: scale(100%); }
+}
+
+.App-header {
+  padding: 30px;
+}
+
+
+
+
+/* 
+##############
+##### NAV ####
+##############
+*/
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-size: 1.5em;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    color: yellow;
+}
