@@ -153,7 +153,7 @@ const starships = [
         consumables: "2 months", 
         hyperdrive_rating: "1.0", 
         MGLT: "50", 
-        starship_class: [starship_class[8]]
+        starship_class: [starship_class[7]]
     }, 
     {
         id: 10,
@@ -169,7 +169,7 @@ const starships = [
         consumables: "2 years", 
         hyperdrive_rating: "2.0", 
         MGLT: "40", 
-        starship_class: [starship_class[9]]
+        starship_class: [starship_class[8]]
     }
 ]
 

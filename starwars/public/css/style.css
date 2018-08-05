@@ -77,9 +77,10 @@ li a:hover:not(.active) {
 */
 
 .App div:nth-child(2){
-  padding-top: 1px; /*fixes weird glitch with nav height */
+  padding-top: 1px; /*work around glitch nav height */
   text-align: left;
-  margin-left: 400px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 .App div:nth-child(2) h1{
@@ -123,6 +124,7 @@ form div input, form div select {
   font-family: 'starwars_1';
   padding: 0.7em 0;
   border: none;
+  transition: 0.2s;
 }
 form div input:focus, form div select:focus {
   border-style: none;
@@ -131,13 +133,16 @@ form div input:focus, form div select:focus {
 }
 
 form div input:hover, form div select:hover, form div:hover {
-  color: yellow;
-  transition: 0.2s;
+  color: yellow;  
 }
+
+form div:last-child:hover{ /* delete btn */
+  color: white;
+}
+
 .options{
   background-color: #000;
 }
-
 
 form div{
   margin: 2em 0;
@@ -148,18 +153,41 @@ form div{
   margin-left: 0px;
 }
 
-form button{
-  padding: 1em 5em;
+/* save & delete btns */
+.controls{
   font-family: 'starwars_1';
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
   background: none;
   color: white;
-  margin-top: 20px;
+  margin: 50px auto 0;
+  height: 100px;
+  width: 300px;
 }
 
-form button:hover{
-  border-color: yellow;
+.controls button, .controls a{
+  border: 2px solid white;
   transition: 0.2s;
+}
+
+.controls button{
+  width: 130px;
+  height: 50px;
+  margin: 0;
+  transform: translate(0);
+  float: left;
+}
+
+.controls a{
+  text-align: center;
+  padding: 10px 30px;
+  float: right;
+}
+
+.controls button:hover {
+  border-color: yellow;
+  color: yellow;
+}
+
+.controls a:hover{
+  border-color: red;
+  color: red;
 }

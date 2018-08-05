@@ -1,8 +1,137 @@
 import * as React from 'react';
+import * as starshipService from '../../services/starships.services';
 
-const StarshipAdd = (props) => (
-    <div clasName='StarshipAdd'>
-        <h1>Add a Starship</h1>
-    </div>
-);
-export default StarshipAdd;
+
+export default class StarshipAdd extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			starship: {
+				name: '',
+				model: '',
+				starship_class: [],
+				passengers: '',
+				consumables: '',
+				cost_in_credits: '',
+			}
+		};
+	}
+
+	updateName(name) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				name,
+			}
+		});
+	}
+
+	updateModel(model) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				model,
+			}
+		});
+	}
+
+	updatePassengers(passengers) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				passengers,
+			}
+		});
+	}
+
+	updateConsumables(consumables) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				consumables,
+			}
+		});
+	}
+
+	updateCost(cost_in_credits) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				cost_in_credits,
+			}
+		});
+	}
+
+	updateClass(starship_class) {
+		this.setState({
+			...this.state,
+			starship: {
+				...this.state.starship,
+				starship_class,
+			}
+		});
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+
+		starshipService.add(this.state.starship).then(() => this.props.history.push('/starships'));
+	}
+
+	render() {
+		return (
+			<div className="starship">
+				<h1>{this.state.starship.name}</h1>
+				<section className='container'>
+					<form action="" onSubmit={(e) => this.onSubmit(e)}>
+						<div>
+							<label htmlFor="starship-name">Name</label>
+							<input required type="text" name="starship-name" id="starship-name" value={this.state.starship.name} onChange={(e) => this.updateName(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-name">Model</label>
+							<input required type="text" name="starship-model" id="starship-model" value={this.state.starship.model} onChange={(e) => this.updateModel(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-passengers">Passengers</label>
+							<input type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-consumables">Consumables</label>
+							<input type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
+						</div>
+						<div>
+							<label htmlFor="starship-cost">Cost</label>
+							<input type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
+						</div>
+
+						<div>
+							<label htmlFor="class">Class</label>
+							<select name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
+								<option className="options" value='Star dreadnought'>Star dreadnought</option>
+								<option className="options" value='Landing craft'>Landing craft</option>
+								<option className="options" value='Deep Space Mobile Battlestation'>Deep Space Mobile Battlestation</option>
+								<option className="options" value='Light freighter'>Light freighter</option>
+								<option className="options" value='Assault starfighter'>Assault starfighter</option>
+								<option className="options" value='Starfighter'>Starfighter</option>
+								<option className="options" value='Patrol craft'>Patrol craft</option>
+								<option className="options" value='Armed government transport'>Armed government transport</option>
+								<option className="options" value='Escort ship'>Escort ship</option>
+							</select>
+						</div>
+
+						<div className="controls">
+							<button type="submit" className="controls">Create</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		)
+	};
+}

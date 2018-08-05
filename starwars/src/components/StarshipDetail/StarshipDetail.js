@@ -72,19 +72,11 @@ export default class StarshipDetail extends React.Component {
 	}
 
 	updateClass(starship_class) {
-		let starship_classes = [...this.state.starship.starship_classes]; // copy
-            
-		if(starship_classes.includes(starship_class)) {
-			starship_classes = starship_classes.filter(c => c !== starship_class); // remove class
-		} else {
-			starship_classes.push(starship_class); // add class
-		}
-
 		this.setState({
 			...this.state,
 			starship: {
 				...this.state.starship,
-				starship_classes,
+				starship_class,
 			}
 		});
 	}
@@ -114,20 +106,21 @@ export default class StarshipDetail extends React.Component {
 						</div>
 						<div>
 							<label htmlFor="starship-passengers">Passengers</label>
-							<input required type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
+							<input type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-consumables">Consumables</label>
-							<input required type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
+							<input type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-cost">Cost</label>
-							<input required type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
+							<input type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
 						</div>
 
 						<div>
 							<label htmlFor="class">Class</label>
-							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+							<select name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
 								<option className="options" value='Star dreadnought'>Star dreadnought</option>
 								<option className="options" value='Landing craft'>Landing craft</option>
 								<option className="options" value='Deep Space Mobile Battlestation'>Deep Space Mobile Battlestation</option>
@@ -139,7 +132,11 @@ export default class StarshipDetail extends React.Component {
 								<option className="options" value='Escort ship'>Escort ship</option>
 							</select>
 						</div>
-						<button type="submit">Save</button>
+
+						<div className="controls">
+							<button type="submit" className="controls">Save</button>
+							<a className="btn delete" onClick={() => this.removeStarship()}>Delete</a>
+						</div>
 					</form>
 				</section>
 			</div>
