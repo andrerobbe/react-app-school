@@ -277,3 +277,69 @@ form div{
 .add-ship input:valid{
   border-color: green;
 }
+
+
+
+
+
+
+/* 
+####################
+##### LOADING ######
+#### ANIMATION #####
+#####################   3498db
+*/
+
+.loader{
+  width: 200px;
+  margin: 0 auto;
+}
+.loader div{
+  margin-top: 100px;
+}
+.loader p{
+  margin-top: -50px;
+  text-align: center;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 15px;
+  background-color: white;
+
+  -webkit-animation: spin 1.5s linear infinite; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: spin 1.5s linear infinite; /* Firefox < 16 */
+    -ms-animation: spin 1.5s linear infinite; /* Internet Explorer */
+     -o-animation: spin 1.5s linear infinite; /* Opera < 12.1 */
+        animation: spin 1.5s linear infinite;
+}
+
+
+@keyframes spin {
+  from  { width: 0;     }
+  to    { width: 200px;}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes spin {
+  from  { width: 0;     }
+  to    { width: 200px;}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes spin {
+  from  { width: 0;     }
+  to    { width: 200px;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes spin {
+  from  { width: 0;     }
+  to    { width: 200px;}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes spin {
+  from  { width: 0;     }
+  to    { width: 200px;}
+}

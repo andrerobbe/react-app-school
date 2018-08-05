@@ -8,6 +8,7 @@ const Nav = (props) => (
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/starships">Starships</Link></li>
                 <li><Link to="/starships/add">Add a ship</Link></li>
+                <li><Link to="/loading">Loading Animation</Link></li>
             </ul>
         </nav>
     </div>

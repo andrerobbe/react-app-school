@@ -106,7 +106,7 @@ export default class StarshipDetail extends React.Component {
 					//Check is item still exists, Prevents undefined (CRASH) if swapping to another page too quickly.
 						list[i].classList.add("show");					
 						i++;											
-						if( i < list.length ){							
+						if( i < howManyTimes ){							
 							setTimeout( addClass, 50 );				//DELAY OF SHOWING NEXT LIST ITEM
 						}
 					}
