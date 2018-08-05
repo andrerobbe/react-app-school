@@ -28,15 +28,47 @@ header {
 }
 
 header img {
-  animation: logo-intro .7s ease-in-out;
+  -webkit-animation: logointro .7s ease-in-out; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: logointro .7s ease-in-out; /* Firefox < 16 */
+      -ms-animation: logointro .7s ease-in-out; /* Internet Explorer */
+       -o-animation: logointro .7s ease-in-out; /* Opera < 12.1 */
+          animation: logointro .7s ease-in-out;
   height: 150px;
 }
 
-@keyframes logo-intro {
-  from { transform: scale(0); }
-  to { transform: scale(100%); }
+@keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
 }
 
+@keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
+}
+
+/* Internet Explorer */
+@-ms-keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes logointro {
+  from  { transform: scale(0);    }
+  to    { transform: scale(100%); }
+}
 
 
 /* 
@@ -100,6 +132,19 @@ li a{
   text-decoration: none;
   color: white;
 }
+
+#shiplist li {
+  transition: all .4s ease-out; /*duration to next element in starshipoverview.js in addClass() */
+  opacity: 0;
+  height: 2em;
+}
+#shiplist li.show {
+  opacity: 1;
+}
+
+
+
+
 
 
 /* 

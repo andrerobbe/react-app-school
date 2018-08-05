@@ -86,8 +86,11 @@ export default class StarshipDetail extends React.Component {
 		starshipService.update(this.props.match.params.id, this.state.starship).then(() => this.props.history.push('/starships'));
 	}
 
-	removeStarship() {
-		starshipService.del(this.props.match.params.id).then(() => this.props.history.push('/starships'));
+	removeStarship(name) {
+		let confirmation = window.confirm("Are you sure you want to delete " + name + "?");
+		if (confirmation) {
+			starshipService.del(this.props.match.params.id).then(() => this.props.history.push('/starships'));
+		}		
 	}
 
 	render() {
@@ -119,7 +122,7 @@ export default class StarshipDetail extends React.Component {
 
 						<div>
 							<label htmlFor="class">Class</label>
-							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+							<select name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
 								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
 								<option className="options" value='Star dreadnought'>Star dreadnought</option>
 								<option className="options" value='Landing craft'>Landing craft</option>
@@ -135,7 +138,7 @@ export default class StarshipDetail extends React.Component {
 
 						<div className="controls">
 							<button type="submit" className="btn save">Save</button>
-							<a className="btn delete" onClick={() => this.removeStarship()}>Delete</a>
+							<a className="btn delete" onClick={() => this.removeStarship(this.state.starship.name)}>Delete</a>
 						</div>
 					</form>
 				</section>
