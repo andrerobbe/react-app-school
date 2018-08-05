@@ -83,34 +83,61 @@ export default class StarshipAdd extends React.Component {
 		starshipService.add(this.state.starship).then(() => this.props.history.push('/starships'));
 	}
 
+
+	addClassShow(){
+		function pageRdy() {										//delayed see below
+			let list = document.getElementsByClassName("list");
+
+			if (list.length){
+				let i = 0, howManyTimes = list.length;				//loop times = amount of ships
+				function addClass() {								//Adds the className 'show' to list[i] item
+					
+					if(list[i]){
+					//Check is item still exists, Prevents undefined (CRASH) if swapping to another page too quickly.
+						list[i].classList.add("show");					
+						i++;											
+						if( i < list.length ){							
+							setTimeout( addClass, 50 );				//DELAY OF SHOWING NEXT LIST ITEM
+						}
+					}
+				}
+				addClass();
+			}
+		}
+		setTimeout(function(){pageRdy();}, 10);						//delay to wait for all dom elements to be ready (this function is called be4 the return in render is made)
+	}
+
+
+
 	render() {
+		this.addClassShow();
 		return (
 			<div className="starship">
 				<h1>{this.state.starship.name}</h1>
 				<section className='container'>
 					<form action="" className="add-ship" onSubmit={(e) => this.onSubmit(e)}>
-						<div>
+						<div className="list">
 							<label htmlFor="starship-name">Name</label>
 							<input required type="text" name="starship-name" id="starship-name" value={this.state.starship.name} onChange={(e) => this.updateName(e.target.value)} />
 						</div>
-						<div>
+						<div className="list">
 							<label htmlFor="starship-name">Model</label>
 							<input required type="text" name="starship-model" id="starship-model" value={this.state.starship.model} onChange={(e) => this.updateModel(e.target.value)} />
 						</div>
-						<div>
+						<div className="list">
 							<label htmlFor="starship-passengers">Passengers</label>
 							<input required type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
 						</div>
-						<div>
+						<div className="list">
 							<label htmlFor="starship-consumables">Consumables</label>
 							<input required type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
 						</div>
-						<div>
+						<div className="list">
 							<label htmlFor="starship-cost">Cost</label>
 							<input required type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
 						</div>
 
-						<div>
+						<div className="list">
 							<label htmlFor="class">Class</label>
 							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
 								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
@@ -126,7 +153,7 @@ export default class StarshipAdd extends React.Component {
 							</select>
 						</div>
 
-						<div className="controls">
+						<div className="controls list">
 							<button type="submit" className="btn create">Create</button>
 						</div>
 					</form>

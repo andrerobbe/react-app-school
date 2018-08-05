@@ -23,25 +23,27 @@ export default class StarshipOverview extends React.Component {
 	addClassShow(){
 		function pageRdy() {										//delayed see below
 			let list = document.getElementsByClassName("list");
+			console.log(list);
 
 			if (list.length){
 				let i = 0, howManyTimes = list.length;				//loop times = amount of ships
 				function addClass() {								//Adds the className 'show' to list[i] item
 					
 					if(list[i]){
-					//Prevents undefined (CRASH) is swapping to another page too quickly.
+					//Check is item still exists, Prevents undefined (CRASH) if swapping to another page too quickly.
 						list[i].classList.add("show");					
 						i++;											
 						if( i < howManyTimes ){							
-							setTimeout( addClass, 50 );				//DELAY OF SHOWING NEXT LIST ITEM
+							setTimeout( addClass, 35 );				//DELAY OF SHOWING NEXT LIST ITEM
 						}
 					}
 				}
 				addClass();
 			}
 		}
-		setTimeout(function(){pageRdy();}, 10);						//delay to wait for all dom elements to be ready. document.readystate doesn't seem to work
+		setTimeout(function(){pageRdy();}, 10);						//delay to wait for all dom elements to be ready.(this function is called be4 the return in render is made)
 	}
+
 
 	render() {
 		let txt = '';

@@ -3,9 +3,15 @@
   src: url('../fonts/starwars_4.ttf');
 }
 
+.App {
+  text-align: center;
+  font-family: 'starwars_1';
+}
+
 body, html {
   height: 100%;
 }
+
 body{
   background-image: url('../images/bg.jpeg');
   height: 100%;
@@ -16,11 +22,6 @@ body{
   margin: 0;
 }
 
-.App {
-  text-align: center;
-  font-family: 'starwars_1';
-}
-
 header {
   text-align: center;
   padding: 30px;
@@ -28,12 +29,12 @@ header {
 }
 
 header img {
+  height: 150px;
   -webkit-animation: logointro .7s ease-in-out; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: logointro .7s ease-in-out; /* Firefox < 16 */
       -ms-animation: logointro .7s ease-in-out; /* Internet Explorer */
        -o-animation: logointro .7s ease-in-out; /* Opera < 12.1 */
           animation: logointro .7s ease-in-out;
-  height: 150px;
 }
 
 @keyframes logointro {
@@ -71,6 +72,9 @@ header img {
 }
 
 
+
+
+
 /* 
 ##############
 ##### NAV ####
@@ -101,6 +105,8 @@ li a:hover:not(.active) {
 
 
 
+
+
 /* 
 ####################
 ##### STARSHIPS ####
@@ -121,7 +127,7 @@ li a:hover:not(.active) {
   transform: translate(-50%,0);
 }
 .container{
-  margin-top: 90px;
+  margin-top: 125px;
 }
 ul {
   list-style-type: none;
@@ -133,14 +139,19 @@ li a{
   color: white;
 }
 
-#shiplist li {
-  transition: all .4s ease-out; /*duration to next element in starshipoverview.js in addClass() */
+#shiplist li,   /*shipOverview.js */
+#shiplist div,  /*shipDetail.js */
+.add-ship div { /*shipAdd.js */
+  transition: all .4s ease-out; /*duration to show next element in addClass() */
   opacity: 0;
   height: 2em;
 }
-#shiplist li.show {
+#shiplist li.show,    /*shipOverview.js */
+#shiplist div.show,   /*shipDetail.js */
+.add-ship div.show {  /*shipAdd.js */
   opacity: 1;
 }
+
 
 
 
@@ -233,6 +244,9 @@ form div{
   border-color: red;
   color: red;
 }
+
+
+
 
 
 /* 
