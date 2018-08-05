@@ -88,7 +88,7 @@ export default class StarshipAdd extends React.Component {
 			<div className="starship">
 				<h1>{this.state.starship.name}</h1>
 				<section className='container'>
-					<form action="" onSubmit={(e) => this.onSubmit(e)}>
+					<form action="" className="add-ship" onSubmit={(e) => this.onSubmit(e)}>
 						<div>
 							<label htmlFor="starship-name">Name</label>
 							<input required type="text" name="starship-name" id="starship-name" value={this.state.starship.name} onChange={(e) => this.updateName(e.target.value)} />
@@ -99,20 +99,20 @@ export default class StarshipAdd extends React.Component {
 						</div>
 						<div>
 							<label htmlFor="starship-passengers">Passengers</label>
-							<input type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
+							<input required type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-consumables">Consumables</label>
-							<input type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
+							<input required type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-cost">Cost</label>
-							<input type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
+							<input required type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
 						</div>
 
 						<div>
 							<label htmlFor="class">Class</label>
-							<select name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
 								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
 								<option className="options" value='Star dreadnought'>Star dreadnought</option>
 								<option className="options" value='Landing craft'>Landing craft</option>
@@ -127,7 +127,7 @@ export default class StarshipAdd extends React.Component {
 						</div>
 
 						<div className="controls">
-							<button type="submit" className="controls">Create</button>
+							<button type="submit" className="btn create">Create</button>
 						</div>
 					</form>
 				</section>

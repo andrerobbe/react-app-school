@@ -106,20 +106,20 @@ export default class StarshipDetail extends React.Component {
 						</div>
 						<div>
 							<label htmlFor="starship-passengers">Passengers</label>
-							<input type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
+							<input required type="text" name="starship-passengers" id="starship-passengers" value={this.state.starship.passengers} onChange={(e) => this.updatePassengers(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-consumables">Consumables</label>
-							<input type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
+							<input required type="text" name="starship-consumables" id="starship-consumables" value={this.state.starship.consumables} onChange={(e) => this.updateConsumables(e.target.value)} />
 						</div>
 						<div>
 							<label htmlFor="starship-cost">Cost</label>
-							<input type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
+							<input required type="text" name="starship-cost" id="starship-cost" value={this.state.starship.cost_in_credits} onChange={(e) => this.updateCost(e.target.value)} />
 						</div>
 
 						<div>
 							<label htmlFor="class">Class</label>
-							<select name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
+							<select required name="class" onChange={(e) => this.updateClass(e.target.value)} className="options">
 								<option className="options" value='' selected disabled hidden>{this.state.starship.starship_class}</option>
 								<option className="options" value='Star dreadnought'>Star dreadnought</option>
 								<option className="options" value='Landing craft'>Landing craft</option>
@@ -134,7 +134,7 @@ export default class StarshipDetail extends React.Component {
 						</div>
 
 						<div className="controls">
-							<button type="submit" className="controls">Save</button>
+							<button type="submit" className="btn save">Save</button>
 							<a className="btn delete" onClick={() => this.removeStarship()}>Delete</a>
 						</div>
 					</form>
