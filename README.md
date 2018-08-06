@@ -1,11 +1,31 @@
-# starwars app
+# Starwars React App
+
+Exam Front-end P3
+André Maurits Robbe
+0116479-79
 
 
-starwars folder:
-npm install
-npm start / yarn start
+
+Github repository: https://github.com/andrerobbe/react-app-school
+Online on: https://starwars.andre.robbe.mtantwerp.eu/
 
 
-api folder:
-npm install
-yarn start
+Loading Animation (CSS based):
+URL /loading
+
+
+## To run locally:
+In starwars folder run commands:
+$ npm install
+$ yarn start
+
+In api folder run commands:
+$ npm install
+$ yarn start
+
+
+## To run online:
+In starwars folder run the command:
+$ yarn build
+
+FTP the build folder to the site.
