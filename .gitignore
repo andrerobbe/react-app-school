@@ -49,4 +49,5 @@ Temporary Items
 
 #custom
 /starwars/node_modules
+/starwars/build
 /api/node_modules
