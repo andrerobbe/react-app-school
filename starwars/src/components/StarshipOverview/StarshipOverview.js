@@ -52,7 +52,7 @@ export default class StarshipOverview extends React.Component {
 			this.addClassShow();
 		}
 		else{
-			txt = '<p>No Starships Available</p>';
+			txt = <p>No Starships Available</p>;
 		}
 
 		return (
