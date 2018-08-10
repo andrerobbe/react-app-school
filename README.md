@@ -26,7 +26,7 @@ $ yarn start
 
 
 ## To run online:
--Go to api folder and run command: $ npm intall
+-Go to api folder and run command: $ npm install
 -Go to api/index.js and change .listen(...) to " .listen(process.env.PORT || 1337) "
 -Deploy API to Heroku.com (https://devcenter.heroku.com/articles/deploying-nodejs)
 -Go to starswars/src/services/starships.services.js
