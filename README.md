@@ -22,10 +22,3 @@ $ yarn start
 In api folder run commands:
 $ npm install
 $ yarn start
-
-
-## To run online:
-In starwars folder run the command:
-$ yarn build
-
-FTP the build folder to the site.
